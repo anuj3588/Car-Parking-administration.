@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "3c7ecf07-077c-40e0-bb14-d1ca7102229b",
+		"name": "Parking Spot",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"apatil\",\n    \"password\": \"anuj@123\",\n    \"password2\": \"anuj@123\",\n    \"email\": \"anuj.patil@gmail.com\",\n    \"first_name\": \"anuj\",\n    \"last_name\": \"patil\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"anuj.patil@gmail.com\",\n    \"password\": \"anuj@123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/token/obtain",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"token",
+						"obtain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Spot",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDA3MDY3LCJpYXQiOjE2ODkwMDY3NjcsImp0aSI6ImI1NjYzNTRmOWJmZTQ2NWQ4N2Q3ZjRhMTYyNmU5YTU2IiwidXNlcl9pZCI6MX0.DPprAlOAoj5teERITa7429PIVJ3e-wWDTIh93EteuuA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/spot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"spot"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spot Price",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDA4NTIxLCJpYXQiOjE2ODkwMDgyMjEsImp0aSI6IjM2MmYwZjA1MzIyNjRkNTE4NjQ5MWRiZjQ1NWUzNWQwIiwidXNlcl9pZCI6MX0.XmnhpV7OT_kwKzyRlalfmOo4CD7SeLkh3Rx73j7g_OM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/book/spot/price/A3/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"book",
+						"spot",
+						"price",
+						"A3",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Spot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDA2NTA4LCJpYXQiOjE2ODkwMDYyMDgsImp0aSI6ImNjYTBmODE3Y2VhNTQwYzc4OTUwYTJiNjdmNzE4ZWM0IiwidXNlcl9pZCI6MX0.XEVNNujbx9k7ng24lh8FztqYp_mABq8dwA2FQ2qrAxM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"spotLocationName\": \"A5\",\n    \"longitude\": \"73.7658974\",\n    \"latitude\": \"18.56860\",\n    \"price\": 10\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/spot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"spot"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Book Spot",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDA1MDExLCJpYXQiOjE2ODkwMDQ3MTEsImp0aSI6ImViZjIxMWQ3Y2FkYjQxZjQ5MTEzZDUxYzRmN2M2YTIzIiwidXNlcl9pZCI6MX0.15c54HQJ1-kgCwn2vORbYtjVua4cHSp-lFaH6vCi47g",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"parkingSpot\":1, \n    \"startTime\":\"2023-07-09 23:30:38\",\n    \"endTime\":\"2023-07-11 23:30:38\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/book/spot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"book",
+						"spot"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reserved Spot",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg4OTQxNTM5LCJpYXQiOjE2ODg5NDEyMzksImp0aSI6Ijc5N2FjMTg0OTI1NDRlNmZhZjZhNWM3NWVjNmViODBkIiwidXNlcl9pZCI6MX0.-RNcmDlJYz00JjQ-7NiUOy4B_eD-AVWiEWM9ZSRXotM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/book/spot",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"book",
+						"spot"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seach Spot",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5MDA4NzEwLCJpYXQiOjE2ODkwMDg0MTAsImp0aSI6IjllYmYwNjgzZDVkNDQ3N2ViMzE5ZjU2MDJjYTAyZjY1IiwidXNlcl9pZCI6MX0.vC2zmsuNHoVBEuJtMLKhpozRPKPaUonRm3YVuuycfvU",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/parking-spot/api/v1/spot?search=True&latitude=18.568&longitude=73.76&radius=10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"parking-spot",
+						"api",
+						"v1",
+						"spot"
+					],
+					"query": [
+						{
+							"key": "search",
+							"value": "True"
+						},
+						{
+							"key": "latitude",
+							"value": "18.568"
+						},
+						{
+							"key": "longitude",
+							"value": "73.76"
+						},
+						{
+							"key": "radius",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
